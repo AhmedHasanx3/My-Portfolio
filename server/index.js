@@ -19,7 +19,7 @@ console.log("ENV CHECK:", {
 });
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" })); // frontend URL
+app.use(cors({ origin: "https://ahmedhasanx3.github.io/My-Portfolio" }));
 app.use(express.json());
 
 app.post("/send", async (req, res) => {
