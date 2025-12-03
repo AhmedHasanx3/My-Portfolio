@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: currentColor !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+:root {
+  --scrollbar-track: #fca5a5;
+  --scrollbar-thumb-start: #f472b6;
+  --scrollbar-thumb-end: #c084fc;
+}
+
+html.dark {
+  --scrollbar-track: #1f2937;
+  --scrollbar-thumb-start: #34d399;
+  --scrollbar-thumb-end: #c084fc;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--scrollbar-thumb-start),
+    var(--scrollbar-thumb-end)
+  );
+  border-radius: 8px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-start) var(--scrollbar-track);
+}
