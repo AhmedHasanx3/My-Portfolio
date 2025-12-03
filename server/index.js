@@ -9,7 +9,8 @@ import nodemailer from "nodemailer";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, ".env") });
+// dotenv.config({ path: path.join(__dirname, ".env") });
+// dotenv.config(); // Not needed on Render
 
 console.log("ENV CHECK:", {
   host: process.env.SMTP_HOST,
@@ -19,7 +20,15 @@ console.log("ENV CHECK:", {
 });
 
 const app = express();
-app.use(cors({ origin: "https://ahmedhasanx3.github.io/My-Portfolio" }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ahmedhasanx3.github.io",
+      "https://ahmedhasanx3.github.io/My-Portfolio",
+    ],
+  })
+);
 app.use(express.json());
 
 app.post("/send", async (req, res) => {
